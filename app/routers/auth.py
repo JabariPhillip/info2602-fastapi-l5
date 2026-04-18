@@ -60,14 +60,12 @@ def signup_user(request:Request, db:SessionDep, username: Annotated[str, Form()]
 def get_user_by_id(db: SessionDep, user:AuthDep):
     return user
 
-
 @auth_router.get("/login", response_class=HTMLResponse)
 async def login_page(request: Request):
     return templates.TemplateResponse(
         request=request, 
         name="login.html",
     )
-
 
 @auth_router.get("/signup", response_class=HTMLResponse)
 async def signup_page(request: Request):
